@@ -1,0 +1,10 @@
+version: "3" #This is the docker-compose version, NOT the projektversion
+services:
+  web:
+    build:
+      context: "./"
+      dockerfile: Dockerfile
+    volumes:
+      - "./application:/var/www/html/"
+    ports:
+      - "8080:80"
