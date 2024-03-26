@@ -1,0 +1,16 @@
+body    {
+    background-color: rgba(0,0,0,0.55);
+}
+
+.r { background-color: red; }
+.bl { background-color: black; }
+.b { background-color: blue; }
+.y { background-color: yellow; }
+.w { background-color: white; }
+
+.kästchen {
+    height: 50px;
+    width: 50px;
+    margin: 1px 1px;
+    border: 3px solid black;
+}
