@@ -1,16 +1,24 @@
 <?php
 namespace views;
+use AllowDynamicProperties;
 use models\GameModel;
-class GameView {
+use controllers\GameController;
+#[AllowDynamicProperties] class GameView {
     private GameModel $gameModel;
-    public function __construct() {
-        $this->gameModel = new GameModel();
+    public function __construct(GameController $gameController = null, GameModel $gameModel = null) {
+        $this->gameController = $gameController;
+        $this->gameModel = $gameModel;
     }
+
     public function render():
     string {
-        $this->gameModel->initializeWorld();
+
         $grid = $this->gameModel->getGrid();
         $coordinates = $this->gameModel->getCoordinates();
+
+        $this->gameController->checkMatchingFields($this->gameModel);
+
+
         $html = '
 <!DOCTYPE html>
 <html lang="en">
@@ -69,6 +77,9 @@ class GameView {
     </div>
 </body>
 </html>';
+
         return $html;
     }
+
+
 }

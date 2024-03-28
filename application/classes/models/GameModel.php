@@ -1,6 +1,9 @@
 <?php
 namespace models;
-class GameModel {
+use controllers\GameController;
+
+class GameModel extends GameController
+{
     public const MAX = 12;
     public const COLORS = ['r', 'bl', 'b', 'y', 'w']; // r = rot, bl = schwarz, b = blau, y = gelb, w = weiß
     private array $grid = [];
